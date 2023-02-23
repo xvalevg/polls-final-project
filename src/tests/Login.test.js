@@ -1,13 +1,12 @@
 import React from "react";
-import { renderWithProviders, fireEvent } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import Login from "../components/Login";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
 
 describe("Login", () => {
   it("will login if data is correct", () => {
-    const store = setupStore();
-    var component = renderWithProviders(
+    var component = render(
       <MemoryRouter>
         <Provider>
           <Login />
