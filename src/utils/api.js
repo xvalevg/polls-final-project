@@ -23,3 +23,5 @@ import {
   export function saveQuestionAnswer (info) {
     return _saveQuestionAnswer(info)
   }
+
+  // module.exports = saveQuestion;
