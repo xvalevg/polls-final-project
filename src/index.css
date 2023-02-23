@@ -1,0 +1,244 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* common */
+
+.container {
+  max-width: 1000px;
+  height: 99vh;
+  max-height: 99vh;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+button {
+  text-transform: uppercase;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  width: auto;
+  position: relative;
+}
+.btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-decoration: none;
+}
+hr {
+  height: 1px;
+  background-color: grey;
+}
+.title{
+  font-size: 16px;
+  color: black;
+  font-weight: 900;
+}
+.subtitle{
+  font-size: 14px;
+  color: grey;
+}
+/* header */
+.header{
+  height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center;  */
+}
+textarea{
+  margin: 5px;
+  min-width: 80vh;
+  max-width: 80vh;
+}
+input{
+  margin: 5px;
+
+  height: 2rem;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-decoration: none;
+}
+
+.nav li:first-child {
+  padding-left: 0;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.authed-header {
+  height: 100%;
+  display: flex;
+}
+
+.avatar {
+  height: 100%;
+  border-radius: 25px;
+  /* margin: 10px; */
+}
+
+/* home */
+.home-container{
+  height: 90vh;
+  max-height: 90vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+}
+.question{
+  border: solid;
+  border-color: grey;
+  border-radius: 5px;
+  margin: 5px 20px;
+  padding: 0 15px;
+  height: auto;
+  display: grid;
+  grid-template-columns: 80% 20%;
+}
+.question-author-container{
+  text-align: center;
+}
+.question-time{
+  font-size: 10px; 
+  color: gray;
+}
+.question-icon-container{
+  display: flex;
+  align-items: center;
+}
+
+/* new question */
+.new-question-container{
+  height: 90vh;
+  max-height: 90vh;
+  text-align: center;
+}
+
+.new-question{
+  display: inline-grid;
+}
+
+/* question */
+.question-container{
+  height: 90vh;
+  max-height: 90vh;
+  text-align: center;
+}
+.question-avatar {
+  max-height: 20vh;
+  border-radius: 100px;
+}
+.question-options-container{
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.question-option{
+  display: inline-grid;
+  border: solid;
+  border-radius: 5px;
+  border-color: gray;
+  box-shadow: inset;
+  height: auto;
+  margin: 20px;
+}
+.vote-me{
+  background-color: cadetblue;
+  height: 5vh;
+}
+.vote-me:hover {
+  background: rgba(95, 158, 160, 0.5);
+  text-decoration: none;
+}
+
+/* leaderboard */
+.customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.customers td, .customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.customers tr:nth-child(even){background-color: #f2f2f2;}
+
+.customers tr:hover {background-color: #ddd;}
+
+.customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: cadetblue;
+  color: white;
+}
+.user-info-container{
+  display: grid;
+  grid-template-columns: 20% 80%; 
+}
+.user-info-avatar {
+  max-height: 5vh;
+  border-radius: 100px;
+}
+
+/* login */
+.login-container{
+  display: grid;
+  grid-template-columns: 50% 50%; 
+  border-radius: 25px;
+  border: solid;
+  max-height: 80vh;
+  margin-top: 10vh;
+}
+.login-image-container{
+  text-align: center;
+  height: 50vh;
+  max-height: 50vh;
+  padding-top: 10vh;
+  display: block;
+  background-color: rgba(252, 255, 254, 1);
+  border-radius:  25px 0 0 25px;
+
+}
+.login-data-container{
+  height: 50vh;
+  max-height: 50vh;
+  display: inline-grid;
+  background-color: cadetblue;
+  padding-top: 20vh;
+  border-radius: 0 25px 25px 0;
+}
+.login-btn{
+  width: 60%;
+  margin-left: 20%;
+  background-color: rgba(252, 255, 254, 1);
+  height: 5vh;
+  border-radius: 10px;
+}
+.login-btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+}
