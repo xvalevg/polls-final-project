@@ -4,10 +4,20 @@
 
 In the project directory, you can run:
 
-### `npm install`
-Creates all dependencies needed for the project to be used
 
+### `git clone https://github.com/xvalevg/polls-final-project.git`
+
+Clone the project to a local directory
+
+### `cd polls-final-project`
+
+Access to the project directory
+
+### `npm install`
+
+Creates all dependencies needed for the project to be used
 ### `npm start`
+
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
