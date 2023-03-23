@@ -42,6 +42,7 @@ function NewQuestion({ dispatch, authedUser, questions }) {
         <p className="subtitle">First Option</p>
         <textarea
           placeholder="First Option"
+          data-testid="first-input"
           value={firstOption}
           onChange={handleChangeFirstOption}
           className="textarea"
@@ -49,6 +50,7 @@ function NewQuestion({ dispatch, authedUser, questions }) {
         <p className="subtitle">Second Option</p>
         <textarea
           placeholder="Second Option"
+          data-testid="second-input"
           value={secondOption}
           onChange={handleChangeSecondOption}
           className="textarea"
@@ -56,6 +58,7 @@ function NewQuestion({ dispatch, authedUser, questions }) {
         <button
           className="btn"
           type="submit"
+          data-testid="submit-button"
           disabled={firstOption === "" || secondOption === ""}
         >
           Submit

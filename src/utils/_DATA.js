@@ -135,13 +135,13 @@ function generateUID() {
   );
 }
 
-export function _getUsers() {
+export const _getUsers = () => {
   return new Promise((resolve) => {
     setTimeout(() => resolve({ ...users }), 1000);
   });
 }
 
-export function _getQuestions() {
+export const _getQuestions =() =>{
   return new Promise((resolve) => {
     setTimeout(() => resolve({ ...questions }), 1000);
   });
@@ -163,7 +163,7 @@ function formatQuestion({ optionOneText, optionTwoText, author }) {
   };
 }
 
-export function _saveQuestion(question) {
+export  const  _saveQuestion = (question) => {
   return new Promise((resolve, reject) => {
     if (
       !question.optionOneText ||
@@ -185,7 +185,7 @@ export function _saveQuestion(question) {
   });
 }
 
-export function _saveQuestionAnswer({ authedUser, qid, answer }) {
+export const  _saveQuestionAnswer = ({ authedUser, qid, answer }) => {
   return new Promise((resolve, reject) => {
     if (!authedUser || !qid || !answer) {
       reject("Please provide authedUser, qid, and answer");

@@ -12,9 +12,11 @@ function Leaderboard({ users }) {
     <div>
       <table className="customers">
         <thead>
+          <tr>
           <th>User</th>
           <th>Answered</th>
           <th>Created</th>
+          </tr>
         </thead>
         <tbody>
           {usersList
