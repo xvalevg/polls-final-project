@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { formatDate } from "../utils/helpers";
 
-function QuestionResume({ p }) {
+function QuestionResume({ p }) {  
   const navigate = useNavigate();
   return (
     <div className="question">

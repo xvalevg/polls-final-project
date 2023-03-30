@@ -1,8 +1,12 @@
-import { SET_AUTHED_USER } from "../actions/authedUser";
+import { SET_AUTHED_USER, SET_CURRENT_PAGE } from "../actions/authedUser";
 import {
   ASSIGN_ANSWER_TO_USER,
   ASSIGN_QUESTION_TO_USER,
 } from "../actions/questions";
+
+const initialState = {
+  authedUser: null
+};
 
 const saveAuthedUser = (info, users) => {
   const usersArray = Object.keys(users);
@@ -25,12 +29,17 @@ const saveAuthedUser = (info, users) => {
   }
 };
 
-export default function authedUser(state = {}, action) {
+export default function authedUser(state = initialState, action) {
   switch (action.type) {
     case SET_AUTHED_USER:
       return {
         ...state,
         authedUser: saveAuthedUser(action.info, action.users),
+      };
+    case SET_CURRENT_PAGE:
+      return {
+        ...state,
+        currentPage: action.info,
       };
     case ASSIGN_ANSWER_TO_USER:
       let aux = {
@@ -45,7 +54,7 @@ export default function authedUser(state = {}, action) {
         ...state,
       };
 
-      auxState.authedUser.questions.push(action.info.id)
+      auxState.authedUser.questions.push(action.info.id);
       return auxState;
 
     default:

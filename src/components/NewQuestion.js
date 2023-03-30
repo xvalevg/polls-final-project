@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { saveNewQuestion } from "../actions/questions";
+import Nav from "./Nav";
 
 function NewQuestion({ dispatch, authedUser, questions }) {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ function NewQuestion({ dispatch, authedUser, questions }) {
       )
     )
       navigate("/");
-  }, [questions]);
+  }, [questions]);  // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleChangeFirstOption = (e) => {
     setFirstOption(e.target.value);
@@ -36,6 +37,7 @@ function NewQuestion({ dispatch, authedUser, questions }) {
   };
   return (
     <div className="new-question-container">
+      <Nav/>
       <p className="title">Would You Rather</p>
       <p className="subtitle">Create your own poll</p>
       <form className="new-question" onSubmit={handleSubmit}>

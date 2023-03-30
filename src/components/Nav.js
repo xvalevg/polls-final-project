@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { setAuthedUser } from "../actions/authedUser";
+import { setAuthedUser,setCurretPage } from "../actions/authedUser";
+
 
 function Nav({ dispatch, authedUser }) {
   const navigate = useNavigate();
@@ -15,25 +16,48 @@ function Nav({ dispatch, authedUser }) {
   const handleClick = () => {
     dispatch(setAuthedUser(null));
   };
+
+  const saveCurrentPage = (page) => {
+    dispatch(setCurretPage(page));
+  };
   return (
     <div className="header">
       <nav className="nav">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link
+              to="/"
+              onClick={() => {
+                saveCurrentPage("/");
+              }}
+            >
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/leaderboard">Leaderboard</Link>
+            <Link
+              to="/leaderboard"
+              onClick={() => {
+                saveCurrentPage("/leaderboard");
+              }}
+            >
+              Leaderboard
+            </Link>
           </li>
           <li>
-            <Link to="/add">New Poll</Link>
+            <Link
+              to="/add"
+              onClick={() => {
+                saveCurrentPage("/add");
+              }}
+            >
+              New Poll
+            </Link>
           </li>
         </ul>
       </nav>
       <div className="authed-header">
-      {authedUser ? (
-          <p className="subtitle">{authedUser.name}</p>
-        ) : null}
+        {authedUser ? <p className="subtitle">{authedUser.name}</p> : null}
         {authedUser ? (
           <img
             src={authedUser.avatarURL}

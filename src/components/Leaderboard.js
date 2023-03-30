@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Nav from "./Nav";
 import UserInfo from "./UserInfo";
 
 function Leaderboard({ users }) {
@@ -10,6 +11,7 @@ function Leaderboard({ users }) {
 
   return (
     <div>
+      <Nav/>
       <table className="customers">
         <thead>
           <tr>

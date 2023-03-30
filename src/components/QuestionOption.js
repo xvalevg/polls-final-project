@@ -26,16 +26,16 @@ function QuestionOption({ dispatch, authedUser, question, options }) {
   };
 
   const calculateVotes = (optionVotes) => {
-    var opt1 = question["optionOne"].votes.length;
-    var opt2 = question["optionTwo"].votes.length;
+    var opt1 = question["optionOne"].votes?.length;
+    var opt2 = question["optionTwo"].votes?.length;
     var calculation = (optionVotes / (opt1 + opt2)) * 100;
     return calculation;
   };
 
   return (
     <div className="question-option">
-      <p className="subtitle"> {options.text} </p>
-      {!Object.keys(authedUser.answers).find((a) => a === question.id) ? (
+      <p className="subtitle"> {options?.text} </p>
+      {!Object.keys(authedUser?.answers).find((a) => a === question?.id) ? (
         <button
           className="vote-me"
           onClick={(e) => {

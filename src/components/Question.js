@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import Nav from "./Nav";
 import QuestionOption from "./QuestionOption";
 
 const withRouter = (Component) => {
@@ -15,21 +16,40 @@ const withRouter = (Component) => {
 };
 
 function Question({ authedUser, question, user }) {
+  let navigate = useNavigate();
+  useEffect(() => {
+    if (!question) {
+      navigate("/error");
+    }
+  }, [question]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    if (!question) {
+      navigate("/error");
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
     <div className="question-container">
-      <p className="title">{`Poll by ${user.name}`}</p>
+      <Nav />
+      <p className="title">{`Poll by ${user?.name}`}</p>
       <img
-        src={user.avatarURL}
+        src={user?.avatarURL}
         alt={`Avatar of user`}
         className="question-avatar"
       />
       <p className="title"> Would you rather</p>
       <div className="question-options-container">
         {[
-          { id: "optionOne", text: question.optionOne.text },
-          { id: "optionTwo", text: question.optionTwo.text },
+          { id: "optionOne", text: question?.optionOne?.text },
+          { id: "optionTwo", text: question?.optionTwo?.text },
         ].map((q) => (
-          <QuestionOption key={q.id} authedUser={authedUser} question={question} options={{ id: q.id, text: q.text }} />
+          <QuestionOption
+            key={q.id}
+            authedUser={authedUser}
+            question={question}
+            options={{ id: q.id, text: q.text }}
+          />
         ))}
       </div>
     </div>
@@ -39,7 +59,7 @@ function Question({ authedUser, question, user }) {
 const mapStateToProps = ({ authedUser, users, questions }, props) => {
   const { question_id } = props.router.params;
   const question = questions[question_id];
-  const user = users[question.author];
+  const user = users[question?.author];
   return { authedUser: authedUser.authedUser, question, user, question_id };
 };
 

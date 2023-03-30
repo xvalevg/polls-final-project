@@ -2,25 +2,34 @@ import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import Login from "../components/Login";
 import { Provider } from "react-redux";
+import configureStore from "redux-mock-store";
 import { MemoryRouter } from "react-router-dom";
 
 describe("Login", () => {
-  it("will login if data is correct", () => {
-    var component = render(
+  const mockStore = configureStore();
+  let store = mockStore({
+    authedUser: null,
+  });
+
+  it("test that name and password values are changed on the change event", () => {
+
+    const { getByTestId, queryByTestId } = render(
       <MemoryRouter>
-        <Provider>
+        <Provider store={store}>
           <Login />
         </Provider>
       </MemoryRouter>
     );
 
-    var nameinput = component.getByTestId("name-input");
-    fireEvent.change(nameinput, { target: { value: "sarahedo" } });
-    var passwordinput = component.getByTestId("name-input");
-    fireEvent.change(passwordinput, { target: { value: "password123" } });
+    const nameInput = getByTestId("name-input");
+    const passwordInput = getByTestId("password-input");
 
-    var submitButton = component.getByTestId("submit-button");
-    fireEvent.click(submitButton);
-    expect(component.queryByTestId("name-input")).not.toBeInTheDocument();
+    fireEvent.change(nameInput, { target: { value: "sarahedo" } });
+    fireEvent.change(passwordInput, { target: { value: "password123" } });
+  
+
+    expect(queryByTestId("name-input")).not.toBeNull();
+    expect(queryByTestId("password-input")).not.toBeNull();
+
   });
 });

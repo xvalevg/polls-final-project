@@ -107,6 +107,9 @@ li {
   grid-template-columns: 1fr 1fr;
   text-align: center;
 }
+.options-container{
+  text-align: right;
+}
 .question{
   border: solid;
   border-color: grey;
